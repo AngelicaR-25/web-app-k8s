@@ -1,1 +1,1 @@
-# web-app-k8s
+# Aplicación en Kubernetes
