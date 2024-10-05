@@ -2,6 +2,17 @@ const express = require('express');
 const app = express();
 const port = 8082;
 
+// Ruta para la Liveness Probe
+app.get('/healthz', (req, res) => {
+    res.status(200).send('OK');
+});
+
+// Ruta para la Readiness Probe
+app.get('/ready', (req, res) => {
+    res.status(200).send('READY');
+});
+
+// Ruta principal de la aplicación
 app.get('/', (req, res) => {
     res.send(`
         <html>
@@ -74,6 +85,7 @@ app.get('/', (req, res) => {
     `);
 });
 
+// Inicializa la aplicación en el puerto especificado
 app.listen(port, () => {
     console.log(`Aplicación ejecutándose en el puerto ${port}`);
 });

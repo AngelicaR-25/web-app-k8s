@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: web-app-service
 spec:
-  type: LoadBalancer
   selector:
     app: web-app
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8082
+  - protocol: TCP
+    port: 80
+    targetPort: 8082
+    nodePort: 30001  # puerto de minikube
+  type: NodePort
